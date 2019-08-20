@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import argparse
 import csv
 import json
@@ -55,7 +55,7 @@ for product_idx, product in sought_products.iterrows():
 						   "Fats": fat_amount, "Proteins": protein_amount, "Carbs": carbohydrate_amount}
 	res.append(single_product_dict)
 
-print("res", res)
+#print("res", res)
 # 3 save results
 out_filename = str(uuid.uuid4()) + ".json"
 # if we are creating user models from their search terms, we need to keep all the queries issued by an individual user together.
@@ -71,3 +71,4 @@ if user_uuid:
 
 with open(out_filename, 'w') as f:
 	json.dump(res, f, indent=0, sort_keys=True)
+	print("recorded results to " + out_filename)
